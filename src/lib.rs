@@ -8,11 +8,20 @@ pub fn add(a: i32, b:i32) -> i32 {
 
 #[wasm_bindgen]
 pub fn compute_math(mut a: i64) -> i64{
-    for i in 0..100000000{
-        a += i;
+    for i in 0..1000000000{
+        a += i * i;
     }
 
-    return a;
+    let mut b = 0;
+    for i in 0..1000000000{
+        b += i * i;
+    }
+
+    let mut c = 0;
+    for i in 0..1000000000{
+        c += i * i;
+    }
+    return a + b - c;
 }
 
 
